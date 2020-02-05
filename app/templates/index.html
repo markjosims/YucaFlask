@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>YUCA</h1>
+	<table BORDER="2">
+		<tr>
+			<th COLSPAN="4">
+				<h>Current Entries</h>
+			</th>
+		</tr>
+		<tr>
+			<td>Index</td>
+			<td>Form</td>
+			<td>PoS</td>
+			<td>Gloss</td>
+		</tr>
+	{% for entry in entries %}
+	<tr>
+		<td>{{ entry.id }}</td>
+		<td>{{ entry.headword }}</td>
+		<td>{{ entry.pos }}</td>
+		<td>{{ entry.gloss }}</td>
+	</tr>
+	{% endfor %}
+	</table>
+	<br>
+	<a href="">Export to csv</a>
+{% endblock %}
