@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="margin: 15px"><!--
+	<form action="{{url_for('import_export')}}" method="POST">
+		<div class="input-group mb-3">
+		  <div class="input-group-prepend">
+		    <input type="submit" class="input-group-text" id="inputGroupFileAddon01">
+		  </div>
+		  <div class="custom-file">
+		    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+		    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+		  </div>
+		</div>
+	</form>
+</div>-->
+     <form action="" method="post" enctype="multipart/form-data">
+     	{{ upload_form.hidden_tag() }}
+        <p>
+           {{upload_form.file_name.label}}
+           <input type="file" name="file">
+           {% for error in upload_form.file_name.errors %}
+           <span style="color: red;">[{{ error }}]</span>
+           {% endfor %}
+         </p>
+        <p>{{upload_form.submit()}}</p>
+     </form>
+</div>
+
+{% endblock %}

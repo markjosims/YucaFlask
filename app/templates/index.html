@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div style="margin: 15px">
 <h1>YUCA</h1>
-	<table BORDER="2">
+	<table BORDER="2" class="table">
 		<tr>
 			<th COLSPAN="4">
 				<h>Current Entries</h>
@@ -24,5 +25,9 @@
 	{% endfor %}
 	</table>
 	<br>
-	<a href="">Export to csv</a>
+
+	<form action="{{ url_for('index') }}" method="Post">
+		<input type='submit' class="btn btn-danger" name="delete" value="Delete all entries">
+
+</div>
 {% endblock %}
